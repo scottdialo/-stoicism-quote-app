@@ -40,3 +40,28 @@ a:visited {
 .linder {
   margin-left: 20px;
 }
+
+/* make it mobile friendly */
+
+@media only screen and (max-width: 800px) {
+  /* For tablets: */
+  .time {
+    font-size: 5em;
+  }
+  .wrapper {
+    width: 70%;
+    font-size: 3em;
+  }
+}
+@media only screen and (max-width: 500px) {
+  /* For mobile phones: */
+  .wrapper {
+    width: 300px;
+    font-size: 2em;
+  }
+  .time {
+    font-size: 4em;
+    width: 300px;
+    height: 300px;
+  }
+}
