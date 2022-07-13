@@ -62,11 +62,14 @@ a:visited {
     width: 300px;
     font-size: 2em;
   }
-  /* .time {
-    font-size: 4em;
+  .container {
     width: 300px;
     height: 300px;
-  } */
+    border: none;
+  }
+  .time {
+    font-size: 4em;
+  }
   a:visited {
     color: black;
   }
