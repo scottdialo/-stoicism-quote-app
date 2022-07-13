@@ -35,8 +35,8 @@ async function getapi(api_url) {
 
   // converting data into json and saving into a var
   var data = await response.json();
-  console.log(data.author);
-  console.log(data.body);
+  // console.log(data.author);
+  // console.log(data.body);
 
   //append the data on the html page
   document.getElementById("author").innerText = data.author;
@@ -44,3 +44,8 @@ async function getapi(api_url) {
 }
 // Calling that async function
 getapi(api_url);
+
+//changing the quote every 5minutes
+setInterval(getapi(api_url), 300000);
+
+//refresh quote code

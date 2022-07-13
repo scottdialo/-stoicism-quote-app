@@ -37,10 +37,12 @@ a:visited {
   text-align: center;
   color: white;
 }
-.linder {
-  margin-left: 20px;
+.git {
+  margin: 0px 10px;
 }
-
+a {
+  color: black;
+}
 /* make it mobile friendly */
 
 @media only screen and (max-width: 800px) {
@@ -52,8 +54,9 @@ a:visited {
     width: 70%;
     font-size: 3em;
   }
-  a:visited {
-    color: black;
+
+  #quote {
+    font-size: 1em;
   }
 }
 @media only screen and (max-width: 500px) {
@@ -70,7 +73,8 @@ a:visited {
   .time {
     font-size: 4em;
   }
-  a:visited {
-    color: black;
+
+  #author {
+    font-size: 1em;
   }
 }
