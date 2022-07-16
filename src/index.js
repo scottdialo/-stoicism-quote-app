@@ -17,14 +17,6 @@ function currentTime() {
 
 setInterval(currentTime, 1000);
 
-//create a function taht will display a quote from an api every 60hr or when user click on refresh button
-const apiList = [];
-//find api or create your own
-//make api call
-//save quote in an array
-//append result on page element
-//set interval to refresh new quote
-
 // api url
 const api_url = "https://stoicquotesapi.com/v1/api/quotes/random";
 
@@ -45,7 +37,25 @@ async function getapi(api_url) {
 // Calling that async function
 getapi(api_url);
 
-//changing the quote every 5minutes
-setInterval(getapi(api_url), 300000);
+//Weather display api call
+const weatherApiUrl =
+  "https://api.openweathermap.org/data/2.5/weather?lat=38&lon=-121&units=imperial&appid=0436d4bf7cd3cb70116b6a7979f72384";
+const weatherIcon = "openweathermap.org/img/wn/10d@2x.png";
 
-//refresh quote code
+async function getWeatherApi(weatherApiUrl) {
+  const response = await fetch(weatherApiUrl);
+  //converting the response data into json
+  const weatherData = await response.json();
+  console.log(weatherData);
+  document.getElementById("weather").innerText =
+    Math.floor(weatherData.main.temp) + "°";
+
+  document.getElementById("weatherId").innerText =
+    weatherData.weather[0].description;
+  document
+    .getElementById("weatherIcon")
+    .src(" http://openweathermap.org/img/wn/10d@2x.png");
+}
+getWeatherApi(weatherApiUrl);
+
+//Detect user location to display weather data automatically
