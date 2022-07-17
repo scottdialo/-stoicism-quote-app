@@ -73,6 +73,12 @@ async function userGeoLocation(userLocationUrl) {
   // converting data into json and saving into a var
   var data = await response.json();
   console.log(data);
+  const city = data.city.name;
+  //slice state name to 2characters and capitalize them
+  const state = data.state.name.slice(0, 2).toUpperCase();
+  const zipcode = data.postcode;
+
+  console.log(state);
 }
 // Calling that async function
 userGeoLocation(userLocationUrl);
