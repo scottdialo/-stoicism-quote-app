@@ -7,18 +7,27 @@ body {
   margin-right: 20px;
   text-align: center;
   float: right;
+  border: 1px solid gray;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: black;
 }
 #city,
 #state {
   display: inline-block;
   margin: 0px auto;
 }
+#weatherIcon {
+  margin: 0px auto;
+}
 #weather {
   margin-bottom: 0px;
   margin-top: 0px;
+  font-size: 3rem;
 }
 #weatherId {
   margin-top: 0px;
+  margin-bottom: 0px;
 }
 .time {
   font-size: 30px;

@@ -75,10 +75,8 @@ async function userGeoLocation(userLocationUrl) {
   ////////Weather  api call   /////////
 
   const weatherApiUrl =
-    "https://api.openweathermap.org/data/2.5/weather?lat=" +
-    latitude +
-    "&lon=" +
-    longitude +
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    city +
     "&units=imperial&appid=0436d4bf7cd3cb70116b6a7979f72384";
 
   const weatherIcon = "openweathermap.org/img/wn/";
