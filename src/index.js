@@ -38,10 +38,49 @@ async function getapi(api_url) {
 // Calling that async function
 getapi(api_url);
 
-//Weather display api call
+//Detect user location to display weather data automatically ////////
+
+const userLocationUrl =
+  "https://api.geoapify.com/v1/ipinfo?apiKey=3c31759e1d5a422db7b5973d07a3ffe1";
+
+let latitude;
+let longitude;
+let city;
+let zipcode;
+
+async function userGeoLocation(userLocationUrl) {
+  // saving the response
+  const response = await fetch(userLocationUrl);
+
+  // converting data into json and saving into a var
+  var data = await response.json();
+  console.log(data);
+  var latitude = Math.floor(data.location.latitude);
+  var longitude = Math.floor(data.location.longitude);
+  console.log(latitude);
+  console.log(longitude);
+
+  city = data.city.name;
+  console.log(city);
+  document.getElementById("city").innerText = data.city.name + ",  ";
+  //slice state name to 2characters and capitalize them
+  const state = data.state.name.slice(0, 2).toUpperCase();
+
+  document.getElementById("state").innerHTML = state;
+  console.log(state);
+
+  zipcode = data.postcode;
+  console.log(zipcode);
+}
+// Calling that async function
+userGeoLocation(userLocationUrl);
+
+////////Weather  api call   /////////
+
 const weatherApiUrl =
-  "https://api.openweathermap.org/data/2.5/weather?lat=38&lon=-121&units=imperial&appid=0436d4bf7cd3cb70116b6a7979f72384";
-//const weatherIcon = "openweathermap.org/img/wn/";
+  "https://api.openweathermap.org/data/2.5/weather?q=london&units=imperial&appid=0436d4bf7cd3cb70116b6a7979f72384";
+
+const weatherIcon = "openweathermap.org/img/wn/";
 
 async function getWeatherApi(weatherApiUrl) {
   const response = await fetch(weatherApiUrl);
@@ -56,29 +95,6 @@ async function getWeatherApi(weatherApiUrl) {
   const icon = weatherData.weather[0].icon;
   console.log(icon);
 
-  // document.getElementById("weatherIcon").src =
-  //   "http://openweathermap.org/img/wn/" + icon + ".png";
+  document.getElementById("weatherIcon").src = weatherIcon + icon + ".png";
 }
 getWeatherApi(weatherApiUrl);
-
-//Detect user location to display weather data automatically
-
-const userLocationUrl =
-  "https://api.geoapify.com/v1/ipinfo?apiKey=3c31759e1d5a422db7b5973d07a3ffe1";
-
-async function userGeoLocation(userLocationUrl) {
-  // saving the response
-  const response = await fetch(userLocationUrl);
-
-  // converting data into json and saving into a var
-  var data = await response.json();
-  console.log(data);
-  const city = data.city.name;
-  //slice state name to 2characters and capitalize them
-  const state = data.state.name.slice(0, 2).toUpperCase();
-  const zipcode = data.postcode;
-
-  console.log(state);
-}
-// Calling that async function
-userGeoLocation(userLocationUrl);
