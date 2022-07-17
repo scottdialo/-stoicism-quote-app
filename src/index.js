@@ -1,5 +1,5 @@
 // import { response } from "express";
-import React from "react";
+import React, { useReducer } from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 
@@ -71,30 +71,34 @@ async function userGeoLocation(userLocationUrl) {
 
   zipcode = data.postcode;
   console.log(zipcode);
+
+  ////////Weather  api call   /////////
+
+  const weatherApiUrl =
+    "https://api.openweathermap.org/data/2.5/weather?lat=" +
+    latitude +
+    "&lon=" +
+    longitude +
+    "&units=imperial&appid=0436d4bf7cd3cb70116b6a7979f72384";
+
+  const weatherIcon = "openweathermap.org/img/wn/";
+
+  async function getWeatherApi(weatherApiUrl) {
+    const response = await fetch(weatherApiUrl);
+    //converting the response data into json
+    const weatherData = await response.json();
+    console.log(weatherData);
+    document.getElementById("weather").innerText =
+      Math.floor(weatherData.main.temp) + "°";
+
+    document.getElementById("weatherId").innerText =
+      weatherData.weather[0].description;
+    const icon = weatherData.weather[0].icon;
+    console.log(icon);
+
+    document.getElementById("weatherIcon").src = weatherIcon + icon + ".png";
+  }
+  getWeatherApi(weatherApiUrl);
 }
 // Calling that async function
 userGeoLocation(userLocationUrl);
-
-////////Weather  api call   /////////
-
-const weatherApiUrl =
-  "https://api.openweathermap.org/data/2.5/weather?q=london&units=imperial&appid=0436d4bf7cd3cb70116b6a7979f72384";
-
-const weatherIcon = "openweathermap.org/img/wn/";
-
-async function getWeatherApi(weatherApiUrl) {
-  const response = await fetch(weatherApiUrl);
-  //converting the response data into json
-  const weatherData = await response.json();
-  console.log(weatherData);
-  document.getElementById("weather").innerText =
-    Math.floor(weatherData.main.temp) + "°";
-
-  document.getElementById("weatherId").innerText =
-    weatherData.weather[0].description;
-  const icon = weatherData.weather[0].icon;
-  console.log(icon);
-
-  document.getElementById("weatherIcon").src = weatherIcon + icon + ".png";
-}
-getWeatherApi(weatherApiUrl);
