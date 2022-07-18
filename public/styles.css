@@ -3,15 +3,16 @@ body {
   background-image: url("https://images.unsplash.com/photo-1641147059333-0948d139eda4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=770&q=80");
 }
 .weather-container {
-  color: white;
+  color: #243067;
   margin-right: 20px;
   text-align: center;
+  font-weight: bold;
   float: right;
-  border: 1px solid gray;
   padding: 10px;
   border-radius: 10px;
-  background-color: black;
+  background-color: yellow;
 }
+
 #city,
 #state {
   display: inline-block;
