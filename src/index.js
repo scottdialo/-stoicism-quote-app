@@ -54,7 +54,7 @@ async function userGeoLocation(userLocationUrl) {
 
   // converting data into json and saving into a var
   var data = await response.json();
-  console.log(data);
+  //console.log(data);
   latitude = Math.floor(data.location.latitude);
   longitude = Math.floor(data.location.longitude);
 
@@ -80,15 +80,15 @@ async function userGeoLocation(userLocationUrl) {
     const response = await fetch(weatherApiUrl);
     //converting the response data into json
     const weatherData = await response.json();
-    console.log(weatherData);
+    //console.log(weatherData);
     document.getElementById("weather").innerText =
       Math.floor(weatherData.main.temp) + "°";
 
     document.getElementById("weatherId").innerText =
       weatherData.weather[0].description;
     const icon = weatherData.weather[0].icon;
-    console.log(icon);
-    document.getElementById("weatherImg").src = imgUrl + icon + ".png";
+    // console.log(icon);
+    // document.getElementById("weatherImg").src = imgUrl + icon + "@2x.png";
     // console.log("this is " + img);
   }
   getWeatherApi(weatherApiUrl);
