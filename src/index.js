@@ -61,7 +61,7 @@ async function userGeoLocation(userLocationUrl) {
   city = data.city.name;
   document.getElementById("city").innerText = data.city.name + ",  ";
   //slice state name to 2characters and capitalize them
-  const state = data.state.name.slice(0, 2).toUpperCase();
+  const state = data.state.name;
 
   document.getElementById("state").innerHTML = state;
 
