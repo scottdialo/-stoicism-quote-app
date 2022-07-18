@@ -55,22 +55,17 @@ async function userGeoLocation(userLocationUrl) {
   // converting data into json and saving into a var
   var data = await response.json();
   console.log(data);
-  var latitude = Math.floor(data.location.latitude);
-  var longitude = Math.floor(data.location.longitude);
-  console.log(latitude);
-  console.log(longitude);
+  latitude = Math.floor(data.location.latitude);
+  longitude = Math.floor(data.location.longitude);
 
   city = data.city.name;
-  console.log(city);
   document.getElementById("city").innerText = data.city.name + ",  ";
   //slice state name to 2characters and capitalize them
   const state = data.state.name.slice(0, 2).toUpperCase();
 
   document.getElementById("state").innerHTML = state;
-  console.log(state);
 
   zipcode = data.postcode;
-  console.log(zipcode);
 
   ////////Weather  api call   /////////
 
@@ -79,7 +74,7 @@ async function userGeoLocation(userLocationUrl) {
     city +
     "&units=imperial&appid=0436d4bf7cd3cb70116b6a7979f72384";
 
-  const weatherIcon = "openweathermap.org/img/wn/";
+  const imgUrl = "openweathermap.org/img/wn/";
 
   async function getWeatherApi(weatherApiUrl) {
     const response = await fetch(weatherApiUrl);
@@ -93,8 +88,8 @@ async function userGeoLocation(userLocationUrl) {
       weatherData.weather[0].description;
     const icon = weatherData.weather[0].icon;
     console.log(icon);
-
-    document.getElementById("weatherIcon").src = weatherIcon + icon + ".png";
+    document.getElementById("weatherImg").src = imgUrl + icon + ".png";
+    // console.log("this is " + img);
   }
   getWeatherApi(weatherApiUrl);
 }

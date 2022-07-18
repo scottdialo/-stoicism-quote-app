@@ -29,12 +29,10 @@ body {
   margin-top: 0px;
   margin-bottom: 0px;
 }
-.time {
-  font-size: 30px;
-}
+
 .time {
   text-align: center;
-  font-size: 96px;
+  font-size: 80px;
   color: #233067;
 }
 footer {
@@ -49,9 +47,9 @@ a:visited {
   background-image: url("https://images.unsplash.com/photo-1629393587831-f7a1d1efa9de?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1767&q=80");
 
   border: 13px solid #ffff;
-  width: 400px;
-  height: 400px;
-  display: flex;
+  width: 300px;
+  height: 300px;
+  /* display: flex; */
   align-items: center;
   border-radius: 100%;
   margin: 0 auto;
