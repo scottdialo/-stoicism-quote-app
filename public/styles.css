@@ -30,7 +30,9 @@ body {
   margin-top: 0px;
   margin-bottom: 0px;
 }
-
+.quote {
+  font-size: 30px;
+}
 .time {
   text-align: center;
   font-size: 80px;
@@ -114,7 +116,9 @@ a {
   #quote {
     font-size: 30px;
   }
-  
+  .quote {
+    font-size: 30px;
+  }
 }
 @media only screen and (max-width: 500px) {
   /* For mobile phones: */
